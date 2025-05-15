@@ -1,0 +1,17 @@
+{
+    "name": "d-food",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "start": "concurrently \"npm run server\" \"npm run client\"",
+        "server": "cd backend && nodemon index.js",
+        "client": "start cmd /k \"cd /d %cd%/frontend && npm start\""
+    },
+    "devDependencies": {
+        "concurrently": "^8.0.0"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.7.2",
+        "ws": "^8.18.2"
+    }
+}
