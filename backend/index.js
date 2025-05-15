@@ -1,18 +1,13 @@
 const connectToMongo = require("./db");
 const express = require("express");
 const http = require("http");
-const WebSocket = require("ws");
 var cors = require("cors");
-// const adminRoutes = require("./routes/admin");
-// const itemRoutes = require("./routes/item");
-// const orderRoutes = require("./routes/order");
 
 
 connectToMongo();
 
 const app = express();
-const server = http.createServer(app); // 🔴 important: http server
-const wss = new WebSocket.Server({ server }); // 🔴 WebSocket server
+const server = http.createServer(app); // 🔴 important: http server 
 
 const router = express.Router();
 
@@ -226,34 +221,6 @@ app.get("/Food-item", (req, res) => {
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/order", require("./routes/order"));
 app.use("/api/contact", require("./routes/contact"));
-// app.use("/api/admin", adminRoutes);
-// app.use("/api/item", itemRoutes);
-// app.use("/api/order", orderRoutes);
-// app.use("/api/admin", require("./routes/admin"));
-// app.use('/api/item', require('./routes/item'));
-// app.use('/api/order', require('./routes/order'));
-// app.use('/api', require('./routes/messages'));
-
-
-
-
-// 🔵 WebSocket logic
-wss.on("connection", (ws) => {
-  console.log("WebSocket client connected");
-  ws.send(JSON.stringify({ status: "Order Placed" }));
-
-  setTimeout(() => {
-    ws.send(JSON.stringify({ status: "Order Shipped" }));
-  }, 5000);
-
-  setTimeout(() => {
-    ws.send(JSON.stringify({ status: "Out for Delivery" }));
-  }, 10000);
-
-  setTimeout(() => {
-    ws.send(JSON.stringify({ status: "Delivered" }));
-  }, 15000);
-});
 
 // Server Start
 server.listen(port, () => {
