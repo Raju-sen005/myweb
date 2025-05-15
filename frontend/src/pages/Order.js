@@ -61,7 +61,7 @@ const Order = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/order/create', {
+      const response = await fetch('https://myweb-backend-x0wd.onrender.com/api/order/create', {
         method: 'POST',
          headers: {
     "Content-Type": "application/json",
