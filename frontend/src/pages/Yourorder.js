@@ -8,7 +8,7 @@ const Yourorder = () => {
     const fetchOrders = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:5000/api/order/allOrder`, {
+        const response = await fetch(`https://myweb-backend-x0wd.onrender.com/api/order/allOrder`, {
           headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`, // ✅ Include token here
