@@ -13,7 +13,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetch('http://localhost:5000/Food-item')
+    fetch('https://myweb-backend-x0wd.onrender.com/Food-item')
       .then((response) => response.json())
       .then((data) => {
         setItems(data);
